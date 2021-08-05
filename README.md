@@ -10,49 +10,29 @@
 [![capybara-ja](https://github.com/testplanisphere/hotel-example-capybara-ja/actions/workflows/test.yml/badge.svg)](https://github.com/testplanisphere/hotel-example-capybara-ja/actions/workflows/test.yml)
 [![selenium4-java-ja](https://github.com/testplanisphere/hotel-example-selenium4-java-ja/actions/workflows/test.yml/badge.svg)](https://github.com/testplanisphere/hotel-example-selenium4-java-ja/actions/workflows/test.yml)
 
-## This site is a sandbox to practice test automation.
+## このサイトはテスト自動化の学習用の練習サイトです。
 
-This site aims to learn browser automation with running automation scripts against this site as the system under test.
+Seleniumなどのブラウザテスト自動化を学習したい方が、実際にテストスクリプトを実行するためのテスト対象サイトとして作成されています。
 
-You can refer to this site from any places such as books and blogs under [MIT License](https://github.com/testplanisphere/hotel-example-site/blob/master/LICENSE).
+書籍やブログなどでのサンプルやデモにもお使いいただけます。ライセンスは [MIT License](https://github.com/testplanisphere/hotel-example-site/blob/master/LICENSE)です。
 
-It is made for learning test automation, but you can also use it to learn test design and technique.
+自動テストの学習を目的として作成されていますが、テスト設計や技法の学習に使うことも可能です。
 
-### Site Structure
+### サイトの構成
 
-This site provides mocked booking hotel feature. It has input forms to log in, sign up, and reserve a room. The layout is mobile friendly by responsive design.
+ホテルの予約サイトを模した作りになっています。ログイン・会員登録・ホテルの宿泊予約のそれぞれの入力フォームを用意しています。レスポンシブデザインに対応しているためモバイルブラウザでも表示できます。
 
-#### Terms of Use
+#### ご利用上の注意
 
-* We confirmed sample code worked with the latest Google Chrome in June 2020.
-* This site is working on GitHub pages.
-* About input data
-  * The data is stored in the browser's Cookie, Session Storage and Local Storage.
-  * he data is NOT stored in the server side such as database.
-  * Due to the specification of HTML, the contents of the form are sent as the last part of the URL. Please note that it may be left in the GitHub server's logs and other records.
-* Do NOT use this site for stress testing.
-* We do not take any responsibilities by using this site.
-
+- 2020年7月時点でのGoogle Chromeの最新版で動作確認をしています。
+- サイトはGitHub Pagesでホストされています。
+- 入力データについて
+  - データはブラウザのCookieおよびSession Storage、Local Storageに保存されます。
+  - DBなどサーバ側での保存はありません。
+  - HTMLの仕様上、フォームへの入力内容はURLの末尾に付加されて送信されます。Githubサーバのログなどに残る可能性があるのでお気をつけください。
+- 負荷テストには利用しないでください。
+- このサイトを利用することによって生じた損害などにつきましては、一切の責任を負いません。
 ### Changelog
-
-#### v2.1.1 (2021-02-28)
-
-* [#31](https://github.com/testplanisphere/hotel-example-site/pull/31) Add rel=opener
-
-#### v2.1.0 (2020-08-31)
-
-* Remove old Japanese pages
-* Update dependencies
-
-#### v2.0.0 (2020-07-27)
-
-* Add English version
-* Move Japanese version
-
-#### v1.1.0 (2020-04-29)
-
-* Add example codes using Selenide and Capybara
-
 #### v1.0.0 (2020-04-14)
 
 * First release
