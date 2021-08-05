@@ -29,6 +29,7 @@
     <form action="./confirm.html" id="reserve-form" novalidate>
       <div class="row">
         <div class="col-lg-6 ml-auto">
+
           <div class="form-group">
             <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
             <p>
@@ -39,6 +40,67 @@
             <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
             <div class="invalid-feedback"></div>
           </div>
+
+          <div class="form-group">
+            <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
+            <p>
+              <select name="year">
+                <option value="lastyear">2020</option>
+                <option value="thisyear">2021</option>
+                <option value="nextyear">2022</option>
+              </select>年
+              <select name="month">
+                <option value="jan">1</option>
+                <option value="feb">2</option>
+                <option value="mar">3</option>
+                <option value="apr">4</option>
+                <option value="may">5</option>
+                <option value="jun">6</option>
+                <option value="jul">7</option>
+                <option value="aug">8</option>
+                <option value="sep">9</option>
+                <option value="oct">10</option>
+                <option value="nov">11</option>
+                <option value="dec">12</option>
+              </select>月
+              <select name="day">
+                <option value="jan">1</option>
+                <option value="feb">2</option>
+                <option value="mar">3</option>
+                <option value="apr">4</option>
+                <option value="may">5</option>
+                <option value="jun">6</option>
+                <option value="jul">7</option>
+                <option value="aug">8</option>
+                <option value="sep">9</option>
+                <option value="oct">10</option>
+                <option value="nov">11</option>
+                <option value="dec">12</option>
+                <option value="jan">13</option>
+                <option value="feb">14</option>
+                <option value="mar">15</option>
+                <option value="apr">16</option>
+                <option value="may">17</option>
+                <option value="jun">18</option>
+                <option value="jul">19</option>
+                <option value="aug">20</option>
+                <option value="sep">21</option>
+                <option value="oct">22</option>
+                <option value="nov">23</option>
+                <option value="dec">24</option>
+                <option value="jan">25</option>
+                <option value="feb">26</option>
+                <option value="mar">27</option>
+                <option value="apr">28</option>
+                <option value="may">29</option>
+                <option value="jun">30</option>
+                <option value="jul">31</option>
+              </select>日
+            </p>
+            <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
+            <div class="invalid-feedback"></div>
+          </div>
+
           <div class="form-group">
             <label for="term">宿泊数 <span class="badge badge-primary">必須</span></label>
             <div class="input-group">
