@@ -30,17 +30,17 @@
       <div class="row">
         <div class="col-lg-6 ml-auto">
 
-          <!--<div class="form-group">
+          <div class="form-group">
             <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
             <p>
-              <input type="text" class="form-control-date needs-calc" name="date" list="year" placeholder="yyyy"
+              <input type="text" class="form-control-date needs-calc" name="date-year" list="year" placeholder="yyyy"
                 required>年
               <datalist id="year">
                 <option value="2020">
                 <option value="2021">
                 <option value="2022">
               </datalist>
-              <input type="text" class="form-control-date needs-calc" name="date" list="month" placeholder="mm"
+              <input type="text" class="form-control-date needs-calc" name="date-month" list="month" placeholder="mm"
                 required>月
               <datalist id="month">
                 <option value="1">
@@ -56,7 +56,8 @@
                 <option value="11">
                 <option value="12">
               </datalist>
-              <input type="text" class="form-control-date needs-calc" name="date" list="day" placeholder="dd" required>日
+              <input type="text" class="form-control-date needs-calc" name="date-day" list="day" placeholder="dd"
+                required>日
               <datalist id="day">
                 <option value="1">
                 <option value="2">
@@ -93,9 +94,16 @@
             </p>
             <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
             <div class="invalid-feedback"></div>
-          </div>-->
+          </div>
 
           <div class="form-group">
+            <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
+            <input type="date" class="form-control needs-calc" name="date" id="date" required>
+            <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <!--<div class="form-group">
             <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
             <p>
               <select name="date_year">
@@ -153,18 +161,27 @@
             </p>
             <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
             <div class="invalid-feedback"></div>
-          </div>
+          </div>-->
 
           <div class="form-group">
             <label for="term">宿泊数 <span class="badge badge-primary">必須</span></label>
             <div class="input-group">
-              <input type="number" class="form-control needs-calc" name="term" id="term" required>
+              <select name="term">
+                <option value="1">
+                <option value="2">
+                <option value="3">
+                <option value="1">
+                <option value="2">
+                <option value="3">
+              </select>泊
+              <!--<input type="number" class="form-control needs-calc" name="term" id="term" required>
               <div class="input-group-append">
                 <span class="input-group-text">泊</span>
-              </div>
+              </div>-->
               <div class="invalid-feedback"></div>
             </div>
           </div>
+
           <div class="form-group">
             <label for="head-count">人数 <span class="badge badge-primary">必須</span></label>
             <div class="input-group">
@@ -175,6 +192,7 @@
               <div class="invalid-feedback"></div>
             </div>
           </div>
+
           <label>追加プラン <small class="text-muted">お一人様各1,000円</small></label>
           <div class="form-group">
             <div class="form-check">
