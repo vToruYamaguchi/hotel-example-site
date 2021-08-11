@@ -1,6 +1,6 @@
 /* Japanese initialisation for the jQuery UI date picker plugin. */
 /* Written by Kentaro SATO (kentaro@ranvis.com). */
-( function( factory ) {
+/*( function( factory ) {
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
@@ -35,3 +35,4 @@ datepicker.setDefaults( datepicker.regional.ja );
 return datepicker.regional.ja;
 
 } ) );
+*/
