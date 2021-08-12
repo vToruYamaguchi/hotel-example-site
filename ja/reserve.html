@@ -32,19 +32,17 @@
           <!--datalist要素-->
           <div class="form-group">
             <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
-            <p>
-              <input type="text" class="form-control needs-calc" name="date" list="list_date" placeholder="yyyy/mm/dd"
-                required>
-              <datalist id="list_date">
-                <option value="2021/09/01">
-                <option value="2021/09/02">
-                <option value="2021/09/03">
-                <option value="2021/09/04">
-                <option value="2021/09/05">
-                <option value="2021/09/06">
-                <option value="2021/09/07">
-              </datalist>
-            </p>
+            <input type="text" class="form-control needs-calc" name="date" list="date" placeholder="yyyy/mm/dd"
+              required>
+            <datalist id="list_date">
+              <option value="2021/09/01">
+              <option value="2021/09/02">
+              <option value="2021/09/03">
+              <option value="2021/09/04">
+              <option value="2021/09/05">
+              <option value="2021/09/06">
+              <option value="2021/09/07">
+            </datalist>
             <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
             <div class="invalid-feedback"></div>
           </div>
