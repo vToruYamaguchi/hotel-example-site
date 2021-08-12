@@ -29,80 +29,33 @@
     <form action="./confirm.html" id="reserve-form" novalidate>
       <div class="row">
         <div class="col-lg-6 ml-auto">
-
-          <!--<div class="form-group">
-            <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
-            <p>
-              <input type="text" class="form-control-date needs-calc" name="date-year" list="year" placeholder="yyyy"
-                required>年
-              <datalist id="year">
-                <option value="2020">
-                <option value="2021">
-                <option value="2022">
-              </datalist>
-              <input type="text" class="form-control-date needs-calc" name="date-month" list="month" placeholder="mm"
-                required>月
-              <datalist id="month">
-                <option value="1">
-                <option value="2">
-                <option value="3">
-                <option value="4">
-                <option value="5">
-                <option value="6">
-                <option value="7">
-                <option value="8">
-                <option value="9">
-                <option value="10">
-                <option value="11">
-                <option value="12">
-              </datalist>
-              <input type="text" class="form-control-date needs-calc" name="date-day" list="day" placeholder="dd"
-                required>日
-              <datalist id="day">
-                <option value="1">
-                <option value="2">
-                <option value="3">
-                <option value="4">
-                <option value="5">
-                <option value="6">
-                <option value="7">
-                <option value="8">
-                <option value="9">
-                <option value="10">
-                <option value="11">
-                <option value="12">
-                <option value="13">
-                <option value="14">
-                <option value="15">
-                <option value="16">
-                <option value="17">
-                <option value="18">
-                <option value="19">
-                <option value="20">
-                <option value="21">
-                <option value="22">
-                <option value="23">
-                <option value="24">
-                <option value="25">
-                <option value="26">
-                <option value="27">
-                <option value="28">
-                <option value="29">
-                <option value="30">
-                <option value="31">
-              </datalist>
-            </p>
-            <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
-            <div class="invalid-feedback"></div>
-          </div>-->
-
+          <!--datalist要素-->
           <div class="form-group">
             <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
-            <input type="text" class="form-control needs-calc" name="date" id="set-date" required>
+            <input type="text" class="form-control-date needs-calc" name="date-year" list="date"
+              placeholder="yyyy/mm/dd" required>年
+            <datalist id="date">
+              <option value="2021/09/01">
+              <option value="2021/09/02">
+              <option value="2021/09/03">
+              <option value="2021/09/04">
+              <option value="2021/09/05">
+              <option value="2021/09/06">
+              <option value="2021/09/07">
+            </datalist>
             <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
             <div class="invalid-feedback"></div>
           </div>
 
+          <!--id名の変更-->
+          <!--<div class="form-group">
+            <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
+            <input type="text" class="form-control needs-calc" name="date" id="set-date" required>
+            <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
+            <div class="invalid-feedback"></div>
+          </div>-->
+
+          <!--ドロップダウンリスト-->
           <!--<div class="form-group">
             <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
             <p>
