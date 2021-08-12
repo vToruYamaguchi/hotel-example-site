@@ -69,14 +69,14 @@ $(function () {
   }
 
   // Setup datepicker
-  /*$('#date').datepicker({
+  $('#date').datepicker({
     showButtonPanel: true,
     maxDate: 90,
     minDate: 1,
-    onSelect: function() {
+    onSelect: function () {
       $(this).change();
     },
-  });*/
+  });
 
   // Setup contact select
   $('#contact').change(function () {
