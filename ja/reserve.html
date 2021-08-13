@@ -57,7 +57,8 @@
           <!--id名の変更-->
           <div class="form-group">
             <label for="date">宿泊日 <span class="badge badge-primary">必須</span></label>
-            <input type="text" class="form-control needs-calc" name="date" id="date" placeholder="yyyy/mm/dd" required>
+            <input type="text" class="form-control needs-calc" name="date" id="set-date" placeholder="yyyy/mm/dd"
+              required>
             <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
             <div class="invalid-feedback"></div>
           </div>
@@ -150,18 +151,17 @@
             <label for="head-count">人数 <span class="badge badge-primary">必須</span></label>
             <div class="input-group">
               <!--<input type="number" class="form-control needs-calc" name="head-count" id="head-count" required>-->
-              <p>
-                <select class="form-control needs-calc" id="head-count" name="head-count" required>
-                  <option value="one">1</option>
-                  <option value="two">2</option>
-                  <option value="three">3</option>
-                  <option value="four">4</option>
-                  <option value="five">5</option>
-                  <option value="six">6</option>
-                  <option value="seven">7</option>
-                  <option value="eight">8</option>
-                  <option value="nine">9</option>
-                </select>
+              <select class="form-control needs-calc" name="head-count" id="head-count" required>
+                <option value="one">1</option>
+                <option value="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+                <option value="five">5</option>
+                <option value="six">6</option>
+                <option value="seven">7</option>
+                <option value="eight">8</option>
+                <option value="nine">9</option>
+              </select>
               <div class="input-group-append">
                 <span class="input-group-text">人</span>
               </div>
