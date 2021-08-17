@@ -72,7 +72,7 @@ $(function () {
       .val(plan.minHeadCount);
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    $("#set-date").val(formatDateShort(tomorrow));
+    $("#accommodation").val(formatDateShort(tomorrow));
     const total = calcTotalBill(
       plan.roomBill,
       tomorrow,
@@ -104,7 +104,7 @@ $(function () {
   }
 
   // Setup datepicker
-  $("#set-date").datepicker({
+  $("#accommodation").datepicker({
     showButtonPanel: true,
     maxDate: 90,
     minDate: 1,
@@ -160,18 +160,23 @@ $(function () {
   // Setup calc total function
   $(".needs-calc").change(function () {
     resetCustomValidity($(this));
-    if ($(this).attr("id") === "date" && $("#set-date")[0].checkValidity()) {
-      const dateMessage = validateDateInput(parseDate($("#set-date").val()));
+    if (
+      $(this).attr("id") === "date" &&
+      $("#accommodation")[0].checkValidity()
+    ) {
+      const dateMessage = validateDateInput(
+        parseDate($("#accommodation").val())
+      );
       if (dateMessage) {
-        $("#set-date")[0].setCustomValidity(dateMessage);
+        $("#accommodation")[0].setCustomValidity(dateMessage);
       }
     }
     if (
-      $("#set-date")[0].checkValidity() &&
+      $("#accommodation")[0].checkValidity() &&
       $("#term")[0].checkValidity() &&
       $("#head-count")[0].checkValidity()
     ) {
-      $("#set-date").parent().removeClass("was-validated");
+      $("#accommodation").parent().removeClass("was-validated");
       $("#term").parent().removeClass("was-validated");
       $("#head-count").parent().removeClass("was-validated");
       updateTotalBill();
@@ -185,11 +190,11 @@ $(function () {
   // Setup submit event
   $("#reserve-form").submit(function () {
     resetCustomValidity($(this).find("input"));
-    const dateValue = parseDate($("#set-date").val());
-    if ($("#set-date")[0].checkValidity()) {
+    const dateValue = parseDate($("#accommodation").val());
+    if ($("#accommodation")[0].checkValidity()) {
       const dateMessage = validateDateInput(dateValue);
       if (dateMessage) {
-        $("#set-date")[0].setCustomValidity(dateMessage);
+        $("#accommodation")[0].setCustomValidity(dateMessage);
       }
     }
     if (this.checkValidity()) {
@@ -220,7 +225,7 @@ $(function () {
 });
 
 function updateTotalBill() {
-  const date = parseDate($("#set-date").val());
+  const date = parseDate($("#accommodation").val());
   if (!date) {
     return;
   }

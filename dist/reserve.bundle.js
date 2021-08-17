@@ -489,7 +489,7 @@
             .attr("max", n.maxHeadCount)
             .val(n.minHeadCount);
         const i = new Date();
-        i.setDate(i.getDate() + 1), $("#set-date").val(Object(a.d)(i));
+        i.setDate(i.getDate() + 1), $("#accommodation").val(Object(a.d)(i));
         const d = Object(l.a)(
           n.roomBill,
           i,
@@ -515,7 +515,7 @@
           ($("#username").val(t.username),
           $("#email").val(t.email),
           $("#tel").val(t.tel)),
-        $("#set-date").datepicker({
+        $("#accommodation").datepicker({
           showButtonPanel: !0,
           maxDate: 90,
           minDate: 1,
@@ -567,19 +567,20 @@
         $(".needs-calc").change(function () {
           if (
             (Object(i.a)($(this)),
-            "date" === $(this).attr("id") && $("#set-date")[0].checkValidity())
+            "date" === $(this).attr("id") &&
+              $("#accommodation")[0].checkValidity())
           ) {
-            const e = Object(i.c)(Object(a.e)($("#set-date").val()));
-            e && $("#set-date")[0].setCustomValidity(e);
+            const e = Object(i.c)(Object(a.e)($("#accommodation").val()));
+            e && $("#accommodation")[0].setCustomValidity(e);
           }
-          $("#set-date")[0].checkValidity() &&
+          $("#accommodation")[0].checkValidity() &&
           $("#term")[0].checkValidity() &&
           $("#head-count")[0].checkValidity()
-            ? ($("#set-date").parent().removeClass("was-validated"),
+            ? ($("#accommodation").parent().removeClass("was-validated"),
               $("#term").parent().removeClass("was-validated"),
               $("#head-count").parent().removeClass("was-validated"),
               (function () {
-                const e = Object(a.e)($("#set-date").val());
+                const e = Object(a.e)($("#accommodation").val());
                 if (!e) return;
                 const t = parseInt($("#room-bill-hidden").val(), 10),
                   n = parseInt($("#term").val(), 10),
@@ -602,10 +603,10 @@
         }),
         $("#reserve-form").submit(function () {
           Object(i.a)($(this).find("input"));
-          const e = Object(a.e)($("#set-date").val());
-          if ($("#set-date")[0].checkValidity()) {
+          const e = Object(a.e)($("#accommodation").val());
+          if ($("#accommodation")[0].checkValidity()) {
             const t = Object(i.c)(e);
-            t && $("#set-date")[0].setCustomValidity(t);
+            t && $("#accommodation")[0].setCustomValidity(t);
           }
           if (!this.checkValidity())
             return (
