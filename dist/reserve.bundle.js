@@ -424,7 +424,7 @@
       for (let r = 0; r < n; r++) {
         const n = new Date(t.getFullYear(), t.getMonth(), t.getDate());
         n.setDate(n.getDate() + r),
-          (0 !== n.gFetDay() && 6 !== n.getDay()) || (s += 0.25 * e * a);
+          (0 !== n.getDay() && 6 !== n.getDay()) || (s += 0.25 * e * a);
       }
       return r && (s += l * a * n), o && (s += l * a), i && (s += l * a), s;
     }
