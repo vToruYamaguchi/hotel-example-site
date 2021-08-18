@@ -144,7 +144,18 @@
           <div class="form-group">
             <label for="term">宿泊数 <span class="badge badge-primary">必須</span></label>
             <div class="input-group">
-              <input type="number" class="form-control needs-calc" name="term" id="term" required>
+              <!--<input type="number" class="form-control needs-calc" name="term" id="term" required>-->
+              <select class="form-control needs-calc" id="term" name="term" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
               <div class="input-group-append">
                 <span class="input-group-text">泊</span>
               </div>
@@ -156,7 +167,7 @@
             <label for="head-count">人数 <span class="badge badge-primary">必須</span></label>
             <div class="input-group">
               <!--<input type="number" class="form-control needs-calc" name="head-count" id="head-count" required>-->
-              <select class="form-control" id="head-count" name="head-count">
+              <select class="form-control needs-calc" id="head-count" name="head-count" required>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
