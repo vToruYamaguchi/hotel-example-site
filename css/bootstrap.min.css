@@ -561,6 +561,7 @@ pre code {
 .col-lg-10,
 .col-lg-11,
 .col-lg-12,
+.col-lg-13,
 .col-lg-2,
 .col-lg-3,
 .col-lg-4,
@@ -1318,6 +1319,11 @@ pre code {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
+  }
+  .col-lg-13 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
   }
   .order-lg-first {
     -ms-flex-order: -1;
@@ -7897,6 +7903,10 @@ button.bg-dark:hover {
   margin-top: auto !important;
 }
 .mr-auto,
+.mx-auto {
+  margin-right: auto !important;
+}
+.auto-test,
 .mx-auto {
   margin-right: auto !important;
 }
