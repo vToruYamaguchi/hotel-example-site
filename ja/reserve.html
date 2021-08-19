@@ -208,7 +208,7 @@
             </div>
           </div>
           <div class="name-form">
-            <label for="username">氏名 <span class="badge badge-primary">必須</span></label>
+            <label for="username">名前 <span class="badge badge-primary">必須</span></label>
             <input type="text" class="form-control" name="username" id="username" required>
             <div class="invalid-feedback"></div>
           </div>
@@ -242,7 +242,16 @@
           <input type="hidden" name="plan-name-hidden" id="plan-name-hidden" value="">
           <input type="hidden" name="room-bill-hidden" id="room-bill-hidden" value="">
         </div>
-        <div class="col-lg-3 mr-auto">
+        <!--<div class="col-lg-3 mr-auto">
+          <h3>合計</h3>
+          <output class="h1 my-2" name="total-bill" id="total-bill">-</output>
+          <button type="submit" class="btn btn-primary btn-block my-3" data-test="submit-button" id="submit-button"
+            disabled>予約内容確認</button>
+          <div id="room-info">
+            <p>部屋指定なし</p>
+          </div>
+        </div>-->
+        <div class="col-lg-13 auto-test">
           <h3>合計</h3>
           <output class="h1 my-2" name="total-bill" id="total-bill">-</output>
           <button type="submit" class="btn btn-primary btn-block my-3" data-test="submit-button" id="submit-button"
