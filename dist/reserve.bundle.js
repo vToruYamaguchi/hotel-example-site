@@ -509,7 +509,7 @@
               name: "room",
             }).appendTo("#room-info"),
             $("#room-info").addClass("embed-responsive embed-responsive-1by1")),
-          $("#confirm-button").prop("disabled", !1);
+          $("#submit-button").prop("disabled", !1);
       }),
         t &&
           ($("#username").val(t.username),

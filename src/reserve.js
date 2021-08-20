@@ -93,7 +93,7 @@ $(function () {
       }).appendTo("#room-info");
       $("#room-info").addClass("embed-responsive embed-responsive-1by1");
     }
-    $("#confirm-button").prop("disabled", false);
+    $("#submit-button").prop("disabled", false);
   });
 
   // set login user data
