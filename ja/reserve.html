@@ -213,17 +213,17 @@
             <div class="invalid-feedback"></div>
           </div>
 
-          <!--<div class="form-group">
+          <div class="form-group">
             <label for="contact">確認のご連絡 <span class="badge badge-primary">必須</span></label>
-            <select class="form-control" name="contact" id="contact" required>
+            <select class="custom-select" name="contact" id="contact" required>
               <option value="" selected>選択してください</option>
               <option value="no">希望しない</option>
               <option value="email">メールでのご連絡</option>
               <option value="tel">電話でのご連絡</option>
             </select>
             <div class="invalid-feedback"></div>
-          </div>-->
-          <div class="form-group">
+          </div>
+          <!--<div class="form-group">
             <label for="contact">確認のご連絡 <span class="badge badge-primary">必須</span></label>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="contact" id="contact" value="no">
@@ -244,11 +244,7 @@
               </label>
             </div>
             <div class="invalid-feedback"></div>
-          </div>
-
-
-
-
+          </div>-->
 
           <div class="form-group d-none">
             <label for="username">メールアドレス <span class="badge badge-primary">必須</span></label>
@@ -280,18 +276,19 @@
           </div>
         </div>-->
 
-        <div class="col-lg-13 auto-test">
+        <div class="col-lg-3 mr-auto">
           <h3>合計</h3>
           <output class="h1 my-2" name="total-bill" id="total-bill">-</output>
-          <p>
-            <button type="submit" class="btn btn-success btn-lg my-3" data-test="submit-button" id="confirm-button"
-              disabled>予約内容確認</button>
-          </p>
           <div id="room-info">
             <p>部屋指定なし</p>
           </div>
+          <div class="col-lg-13 auto-test">
+            <p>
+              <button type="submit" class="btn btn-success btn-lg my-3" data-test="submit-button" id="confirm-button"
+                disabled>予約内容確認</button>
+            </p>
+          </div>
         </div>
-      </div>
     </form>
   </div>
   <footer class="text-center py-5">
