@@ -62,7 +62,7 @@
 
           <!--id名の変更-->
           <div class="form-group">
-            <label for="accommodation">宿泊日 <span class="badge badge-primary">必須</span></label>
+            <label for="accommodation">宿泊日 <span class="badge bg-success">必須</span></label>
             <input type="text" class="form-control needs-calc" name="date" id="accommodation" required>
             <small class="form-text text-muted">ご予約は3ヶ月以内の日付のみ可能です。</small>
             <div class="invalid-feedback"></div>
@@ -212,7 +212,8 @@
             <input type="text" class="form-control" name="username" id="username" required>
             <div class="invalid-feedback"></div>
           </div>
-          <div class="form-group">
+
+          <!--<div class="form-group">
             <label for="contact">確認のご連絡 <span class="badge badge-primary">必須</span></label>
             <select class="form-control" name="contact" id="contact" required>
               <option value="" selected>選択してください</option>
@@ -221,7 +222,32 @@
               <option value="tel">電話でのご連絡</option>
             </select>
             <div class="invalid-feedback"></div>
+          </div>-->
+
+          <div class="form-check">
+            <label for="contact">確認のご連絡 <span class="badge badge-primary">必須</span></label>
+            <input class="form-check-input" type="radio" name="contact" id="contact" value="no" checked>
+            <label class="form-check-label" for="contact">
+              希望しない
+            </label>
           </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="contact" id="contact" value="email">
+            <label class="form-check-label" for="contact">
+              メールでのご連絡
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="contact" id="contact" value="tel">
+            <label class="form-check-label" for="contact">
+              電話でのご連絡
+            </label>
+          </div>
+
+
+
+
+
           <div class="form-group d-none">
             <label for="username">メールアドレス <span class="badge badge-primary">必須</span></label>
             <input type="email" class="form-control" name="email" id="email" disabled>
@@ -256,8 +282,8 @@
           <h3>合計</h3>
           <output class="h1 my-2" name="total-bill" id="total-bill">-</output>
           <p>
-            <button type="submit" class="btn btn-outline-primary btn-lg my-3" data-test="submit-button"
-              id="confirm-button" disabled>予約内容を確認する</button>
+            <button type="submit" class="btn btn-success btn-lg my-3" data-test="submit-button" id="confirm-button"
+              disabled>予約内容確認</button>
           </p>
           <div id="room-info">
             <p>部屋指定なし</p>
