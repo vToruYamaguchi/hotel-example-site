@@ -480,7 +480,7 @@
           $("#plan-id-hidden").val(n.id),
           $("#plan-name-hidden").val(n.name),
           $("#room-bill-hidden").val(n.roomBill),
-          $("#stay")
+          $("#term")
             .attr("min", n.minTerm)
             .attr("max", n.maxTerm)
             .val(n.minTerm),
@@ -574,16 +574,16 @@
             e && $("#accommodation")[0].setCustomValidity(e);
           }
           $("#accommodation")[0].checkValidity() &&
-          $("#stay")[0].checkValidity() &&
+          $("#term")[0].checkValidity() &&
           $("#head-count")[0].checkValidity()
             ? ($("#accommodation").parent().removeClass("was-validated"),
-              $("#stay").parent().removeClass("was-validated"),
+              $("#term").parent().removeClass("was-validated"),
               $("#head-count").parent().removeClass("was-validated"),
               (function () {
                 const e = Object(a.e)($("#accommodation").val());
                 if (!e) return;
                 const t = parseInt($("#room-bill-hidden").val(), 10),
-                  n = parseInt($("#stay").val(), 10),
+                  n = parseInt($("#term").val(), 10),
                   o = parseInt($("#head-count").val(), 10),
                   i = Object(l.a)(
                     t,
@@ -619,7 +619,7 @@
                 roomBill: parseInt($("#room-bill-hidden").val(), 10),
                 planName: $("#plan-name-hidden").val(),
                 date: Object(a.b)(e),
-                term: parseInt($("#stay").val(), 10),
+                term: parseInt($("#term").val(), 10),
                 headCount: parseInt($("#head-count").val(), 10),
                 breakfast: $("#breakfast").prop("checked"),
                 earlyCheckIn: $("#early-check-in").prop("checked"),

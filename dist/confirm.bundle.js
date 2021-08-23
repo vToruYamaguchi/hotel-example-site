@@ -404,7 +404,7 @@
           $("#plan-desc").text(
             Object(s.a)("reserve.planDescShort", Object(r.a)(n.roomBill))
           ),
-          $("#stay").text(
+          $("#term").text(
             Object(s.a)("reserve.term", Object(r.c)(l), Object(r.c)(u), n.term)
           ),
           $("#head-count").text(Object(s.a)("reserve.headCount", n.headCount));
