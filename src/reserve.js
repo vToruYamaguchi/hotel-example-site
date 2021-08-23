@@ -62,7 +62,7 @@ $(function () {
     $("#plan-id-hidden").val(plan.id);
     $("#plan-name-hidden").val(plan.name);
     $("#room-bill-hidden").val(plan.roomBill);
-    $("#stay")
+    $("#term")
       .attr("min", plan.minTerm)
       .attr("max", plan.maxTerm)
       .val(plan.minTerm);
@@ -173,11 +173,11 @@ $(function () {
     }
     if (
       $("#accommodation")[0].checkValidity() &&
-      $("#stay")[0].checkValidity() &&
+      $("#term")[0].checkValidity() &&
       $("#head-count")[0].checkValidity()
     ) {
       $("#accommodation").parent().removeClass("was-validated");
-      $("#stay").parent().removeClass("was-validated");
+      $("#term").parent().removeClass("was-validated");
       $("#head-count").parent().removeClass("was-validated");
       updateTotalBill();
     } else {
@@ -202,7 +202,7 @@ $(function () {
         roomBill: parseInt($("#room-bill-hidden").val(), 10),
         planName: $("#plan-name-hidden").val(),
         date: formatDateISO(dateValue),
-        term: parseInt($("#stay").val(), 10),
+        term: parseInt($("#term").val(), 10),
         headCount: parseInt($("#head-count").val(), 10),
         breakfast: $("#breakfast").prop("checked"),
         earlyCheckIn: $("#early-check-in").prop("checked"),
@@ -230,7 +230,7 @@ function updateTotalBill() {
     return;
   }
   const roomBill = parseInt($("#room-bill-hidden").val(), 10);
-  const term = parseInt($("#stay").val(), 10);
+  const term = parseInt($("#term").val(), 10);
   const headCount = parseInt($("#head-count").val(), 10);
   const totalBill = calcTotalBill(
     roomBill,
