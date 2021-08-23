@@ -65,10 +65,29 @@
             <input type="color" class="form-control" name="color" id="color" value="#ffffff" pattern="#[0-9a-fA-F]{6}"
               disabled>
           </div>
+          <div class="name-form">
+            <label for="icon">アイコン画像</label>
+            <input type="file" class="form-control-file" name="icon" id="icon" accept="image/*" required>
+            <small class="form-text text-muted">サイズ10KB以下の画像ファイルを選択してください。</small>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="name-form">
+            <label for="zoom">拡大・縮小</label>
+            <input type="range" class="form-control-range" name="zoom" id="zoom" min="0" max="100" step="1" value="100"
+              disabled>
+          </div>
+          <div class="name-form">
+            <label for="color">枠線の色</label>
+            <input type="color" class="form-control" name="color" id="color" value="#ffffff" pattern="#[0-9a-fA-F]{6}"
+              disabled>
+          </div>
           <button type="submit" class="btn btn-primary btn-block my-3">確定</button>
         </form>
       </div>
       <div class="col-lg-3 mr-auto">
+        <div id="icon-holder"></div>
+      </div>
+      <div class="col-lg-13 auto-test">
         <div id="icon-holder"></div>
       </div>
     </div>
