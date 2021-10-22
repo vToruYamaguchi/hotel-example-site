@@ -21,7 +21,10 @@ class TestReservation():
         today = datetime.date.today()
         nextmonths = (today + relativedelta(months=1)).replace(day=1)
         nextmonths = str(nextmonths).replace("-", "/")
-        form_page.set_date_and_term(nextmonths, "3")
+        form_page.set_date(nextmonths)
+
+        # 宿泊数を"3"に設定
+        form_page.set_term("3")
 
         # 人数を"2"に設定
         form_page.set_headcount("2")

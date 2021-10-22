@@ -17,13 +17,15 @@ class FormPageObject:
             EC.element_to_be_clickable((By.ID, "confirm-button")))
 
         # 使う変数と引数がかぶらないようにしないといけないこと!!
-    def set_date_and_term(self, setdate, term):
+    def set_date(self, setdate):
         date = self.driver.find_element(By.ID, "accommodation")
         date.clear()
         date.send_keys(setdate)
         # 引数dateの値を入力している
         date.send_keys(Keys.TAB)
         # TABキーを押下したいときにインポートするクラスが違う"import Keys"Kは大文字
+
+    def set_term(self, term):
         days = self.driver.find_element(By.ID, "term")
         days.clear()
         days.send_keys(term)
