@@ -6,7 +6,7 @@ import datetime
 from dateutil.relativedelta import relativedelta
 
 
-class TestDataDriven():
+class TestReservation():
     def setup_method(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.driver.maximize_window()
