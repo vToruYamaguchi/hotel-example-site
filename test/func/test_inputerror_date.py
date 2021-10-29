@@ -6,7 +6,7 @@ import datetime
 from dateutil.relativedelta import relativedelta
 
 
-class TestFormserror():
+class TestInputErrorDate():
     def setup_method(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.driver.maximize_window()
