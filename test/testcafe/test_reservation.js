@@ -6,7 +6,7 @@ fixture("HOTEL PLANISPHERE").page(
 );
 
 //テストケース1
-test("予約できること", async (t) => {
+test("明日の日付で予約が出来ること", async (t) => {
   //要素の取得
   const date = await Selector("#accommodation");
   const headcount = await Selector("#head-count");
@@ -17,12 +17,22 @@ test("予約できること", async (t) => {
   const contactoption = await contact.find("option");
   const confirm = await Selector("#confirm-button");
 
+  //明日の日付取得
+  const tomorrow = ()=>{
+    var now = new Date();
+    let year = now.getFullYear();
+    let month = (now.getMonth()+1);
+    let date = (now.getDate()+1);
+    let setdate = year + "/" + month + "/" + date;
+    return setdate
+    };
+
   //テスト開始
   await t
     //それぞれの動作
     .selectText(date,0)
     .pressKey('delete')
-    .typeText(date, "2021/12/31")
+    .typeText(date, tomorrow())
     .selectText(headcount,0)
     .pressKey('delete')
     .typeText(headcount, "1")
@@ -33,10 +43,13 @@ test("予約できること", async (t) => {
     .typeText(username,"testA")
     .click(contact)
     .click(contactoption.withText('希望しない'))
-    .click(confirm);
+    .click(confirm)
+    .takeScreenshot(
+      'output/sample1.png',
+    );
 
   //確認
   await t
-    .expect(Selector("#confirm > div:nth-child(1) > div > h2").innerText)
-    .eql("宿泊予約確認");
+    .expect(Selector("#total-bill").innerText)
+    .eql("合計 9,750円（税込み）");
 });
