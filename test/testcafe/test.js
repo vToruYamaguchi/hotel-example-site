@@ -6,8 +6,7 @@ fixture("HOTEL PLANISPHERE").page(
 );
 
 //テストケース1
-let testcase1 = "ログインテスト";
-test(testcase1, async (t) => {
+test("ログインテスト", async (t) => {
   //要素の取得
   const loginButton = await Selector("#login-holder");
   const email = await Selector("#email");
