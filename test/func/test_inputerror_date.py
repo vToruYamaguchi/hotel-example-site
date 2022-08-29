@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By  # 要素取得のために必要なモジュール
 from pages import form
@@ -6,11 +7,13 @@ import datetime
 from dateutil.relativedelta import relativedelta
 
 
-class TestInputErrorDate():
+class TestInputErrorDate:
     def setup_method(self):
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         self.driver.maximize_window()
-        self.driver.get("https://vtoruyamaguchi.github.io/hotel-example-site/ja/reserve.html?plan-id=0")
+        self.driver.get(
+            "https://vtoruyamaguchi.github.io/hotel-example-site/ja/reserve.html?plan-id=0"
+        )
 
     # 当日の日付では予約できないことを確認する
     def test_setdate_today(self):
@@ -43,11 +46,14 @@ class TestInputErrorDate():
         driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
         driver.save_screenshot("./output/formserror_today.png")
 
-        messeage = self.driver.find_element(By.CSS_SELECTOR,
-                                            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div").text
+        messeage = self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div",
+        ).text
 
-        assert messeage == "翌日以降の日付を入力してください。", \
-            "宿泊日が当日だと宿泊日入力エリア下に「翌日以降の日付を入力してください。」と表示されること"
+        assert (
+            messeage == "翌日以降の日付を入力してください。"
+        ), "宿泊日が当日だと宿泊日入力エリア下に「翌日以降の日付を入力してください。」と表示されること"
 
     # 昨日の日付を入力しても予約できないことを確認する
     def test_setdate_yesterday(self):
@@ -82,11 +88,14 @@ class TestInputErrorDate():
         driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
         driver.save_screenshot("./output/formserror_yesterday.png")
 
-        messeage = self.driver.find_element(By.CSS_SELECTOR,
-                                            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div").text
+        messeage = self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div",
+        ).text
 
-        assert messeage == "翌日以降の日付を入力してください。", \
-            "宿泊日が当日だと宿泊日入力エリア下に「翌日以降の日付を入力してください。」と表示されること"
+        assert (
+            messeage == "翌日以降の日付を入力してください。"
+        ), "宿泊日が当日だと宿泊日入力エリア下に「翌日以降の日付を入力してください。」と表示されること"
 
     # 宿泊日が91日先だと予約できないことを確認する
     def test_setdate_three_months_ahead_days(self):
@@ -121,11 +130,14 @@ class TestInputErrorDate():
         driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
         driver.save_screenshot("./output/formserror_threemonthsahead.png")
 
-        messeage = self.driver.find_element(By.CSS_SELECTOR,
-                                            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div").text
+        messeage = self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div",
+        ).text
 
-        assert messeage == "3ヶ月以内の日付を入力してください。", \
-            "宿泊日が91日先だと宿泊日入力エリア下に「3ヶ月以内の日付けを入力してください。」と表示されること"
+        assert (
+            messeage == "3ヶ月以内の日付を入力してください。"
+        ), "宿泊日が91日先だと宿泊日入力エリア下に「3ヶ月以内の日付けを入力してください。」と表示されること"
 
     # 宿泊日欄が空白では予約できないことを確認する
     def test_setdate_null(self):
@@ -156,11 +168,14 @@ class TestInputErrorDate():
         driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
         driver.save_screenshot("./output/formserror_null.png")
 
-        messeage = self.driver.find_element(By.CSS_SELECTOR,
-                                            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div").text
+        messeage = self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div",
+        ).text
 
-        assert messeage == "このフィールドを入力してください。", \
-            "宿泊日が空白だと宿泊日入力エリア下に「このフィールドを入力してください。」と表示されること"
+        assert (
+            messeage == "このフィールドを入力してください。"
+        ), "宿泊日が空白だと宿泊日入力エリア下に「このフィールドを入力してください。」と表示されること"
 
     def teardown_method(self):
         self.driver.quit()
