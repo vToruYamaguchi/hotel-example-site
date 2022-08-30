@@ -1,19 +1,12 @@
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from pages import form, confirm
 import datetime
 from dateutil.relativedelta import relativedelta
 
 
-class TestReservation():
-    def setup_method(self):
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
-        self.driver.maximize_window()
-        self.driver.get("https://vtoruyamaguchi.github.io/hotel-example-site/ja/reserve.html?plan-id=0")
-
-    def test_open_webpage(self):
-        driver = self.driver
-        form_page = form.FormPageObject(self.driver)
+class TestReservation:
+    def test_open_webpage(self, hotel_site, capture_name):
+        driver = hotel_site
+        form_page = form.FormPageObject(driver)
 
         form_page.wait_until_clickable()
 
@@ -40,19 +33,16 @@ class TestReservation():
         # 予約確認ボタンを押下する
         form_page.click_confirmbutton()
 
-        confirm_page = confirm.ConfirmPageObject(self.driver)
+        confirm_page = confirm.ConfirmPageObject(driver)
 
         confirm_page.wait_until_clickable()
 
         # スクリーンショット
-        driver.save_screenshot("./output/sample.png")
-        '''
+        driver.save_screenshot(capture_name)
+        """
         assert処理の後ろには基本関数は作成しない
         assertでエラーになった場合はそのあとの処理が行われないため(行うためにはpycheckを入れないといけない)
-        '''
+        """
         total = confirm_page.check_total()
 
         assert total == "51,000", "合計金額が51,000円であること"
-
-    def teardown_method(self):
-        self.driver.quit()

@@ -1,21 +1,14 @@
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By  # 要素取得のために必要なモジュール
 from pages import form
 import datetime
-from dateutil.relativedelta import relativedelta
 
 
-class TestInputErrorTerm():
-    def setup_method(self):
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
-        self.driver.maximize_window()
-        self.driver.get("https://vtoruyamaguchi.github.io/hotel-example-site/ja/reserve.html?plan-id=0")
+class TestInputErrorTerm:
 
     # 宿泊数が空白だと予約ができないことを確認する
-    def test_setterm_null(self):
-        driver = self.driver
-        form_page = form.FormPageObject(self.driver)
+    def test_setterm_null(self, hotel_site, capture_name):
+        driver = hotel_site
+        form_page = form.FormPageObject(driver)
 
         form_page.wait_until_clickable()
 
@@ -43,18 +36,21 @@ class TestInputErrorTerm():
         form_page.click_confirmbutton()
 
         driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
-        driver.save_screenshot("./output/formsinputerror_termnull.png")
+        driver.save_screenshot(capture_name)
 
-        messeage = self.driver.find_element(By.CSS_SELECTOR,
-                                            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(3) > div > div.invalid-feedback").text
+        messeage = driver.find_element(
+            By.CSS_SELECTOR,
+            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(3) > div > div.invalid-feedback",
+        ).text
 
-        assert messeage == "このフィールドを入力してください。", \
-            "宿泊数が空白だと宿泊数入力エリア下に「このフィールドを入力してください。」と表示されること"
+        assert (
+            messeage == "このフィールドを入力してください。"
+        ), "宿泊数が空白だと宿泊数入力エリア下に「このフィールドを入力してください。」と表示されること"
 
     # 宿泊数が0だと予約ができないことを確認する
-    def test_setterm_zero(self):
-        driver = self.driver
-        form_page = form.FormPageObject(self.driver)
+    def test_setterm_zero(self, hotel_site, capture_name):
+        driver = hotel_site
+        form_page = form.FormPageObject(driver)
 
         form_page.wait_until_clickable()
 
@@ -82,18 +78,21 @@ class TestInputErrorTerm():
         form_page.click_confirmbutton()
 
         driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
-        driver.save_screenshot("./output/formsinputerror_termzero.png")
+        driver.save_screenshot(capture_name)
 
-        messeage = self.driver.find_element(By.CSS_SELECTOR,
-                                            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(3) > div > div.invalid-feedback").text
+        messeage = driver.find_element(
+            By.CSS_SELECTOR,
+            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(3) > div > div.invalid-feedback",
+        ).text
 
-        assert messeage == "1以上の値を入力してください。", \
-            "宿泊数が'0'だと宿泊数入力エリア下に「1以上の値を入力してください。」と表示されること"
+        assert (
+            messeage == "1以上の値を入力してください。"
+        ), "宿泊数が'0'だと宿泊数入力エリア下に「1以上の値を入力してください。」と表示されること"
 
     # 宿泊数が10以上だと予約ができないことを確認する
-    def test_setterm_moreten(self):
-        driver = self.driver
-        form_page = form.FormPageObject(self.driver)
+    def test_setterm_moreten(self, hotel_site, capture_name):
+        driver = hotel_site
+        form_page = form.FormPageObject(driver)
 
         form_page.wait_until_clickable()
 
@@ -121,13 +120,13 @@ class TestInputErrorTerm():
         form_page.click_confirmbutton()
 
         driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
-        driver.save_screenshot("./output/formsinputerror_termzero.png")
+        driver.save_screenshot(capture_name)
 
-        messeage = self.driver.find_element(By.CSS_SELECTOR,
-                                            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(3) > div > div.invalid-feedback").text
+        messeage = driver.find_element(
+            By.CSS_SELECTOR,
+            "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(3) > div > div.invalid-feedback",
+        ).text
 
-        assert messeage == "9以下の値を入力してください。", \
-            "宿泊数が'10'だと宿泊数入力エリア下に「9以下の値を入力してください。」と表示されること"
-
-    def teardown_method(self):
-        self.driver.quit()
+        assert (
+            messeage == "9以下の値を入力してください。"
+        ), "宿泊数が'10'だと宿泊数入力エリア下に「9以下の値を入力してください。」と表示されること"

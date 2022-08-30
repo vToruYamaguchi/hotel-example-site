@@ -1,24 +1,13 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By  # 要素取得のために必要なモジュール
 from pages import form
 import datetime
-from dateutil.relativedelta import relativedelta
 
 
 class TestInputErrorDate:
-    def setup_method(self):
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-        self.driver.maximize_window()
-        self.driver.get(
-            "https://vtoruyamaguchi.github.io/hotel-example-site/ja/reserve.html?plan-id=0"
-        )
 
     # 当日の日付では予約できないことを確認する
-    def test_setdate_today(self):
-        driver = self.driver
-        form_page = form.FormPageObject(self.driver)
+    def test_setdate_today(self, hotel_site, capture_name):
+        form_page = form.FormPageObject(hotel_site)
 
         form_page.wait_until_clickable()
 
@@ -43,10 +32,10 @@ class TestInputErrorDate:
         # 予約確認ボタンを押下する
         form_page.click_confirmbutton()
 
-        driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
-        driver.save_screenshot("./output/formserror_today.png")
+        hotel_site.execute_script("window.scrollTo(document.body.scrollHeight,0)")
+        hotel_site.save_screenshot(capture_name)
 
-        messeage = self.driver.find_element(
+        messeage = hotel_site.find_element(
             By.CSS_SELECTOR,
             "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div",
         ).text
@@ -56,9 +45,8 @@ class TestInputErrorDate:
         ), "宿泊日が当日だと宿泊日入力エリア下に「翌日以降の日付を入力してください。」と表示されること"
 
     # 昨日の日付を入力しても予約できないことを確認する
-    def test_setdate_yesterday(self):
-        driver = self.driver
-        form_page = form.FormPageObject(self.driver)
+    def test_setdate_yesterday(self, hotel_site, capture_name):
+        form_page = form.FormPageObject(hotel_site)
 
         form_page.wait_until_clickable()
 
@@ -85,10 +73,10 @@ class TestInputErrorDate:
         # 予約確認ボタンを押下する
         form_page.click_confirmbutton()
 
-        driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
-        driver.save_screenshot("./output/formserror_yesterday.png")
+        hotel_site.execute_script("window.scrollTo(document.body.scrollHeight,0)")
+        hotel_site.save_screenshot(capture_name)
 
-        messeage = self.driver.find_element(
+        messeage = hotel_site.find_element(
             By.CSS_SELECTOR,
             "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div",
         ).text
@@ -98,9 +86,8 @@ class TestInputErrorDate:
         ), "宿泊日が当日だと宿泊日入力エリア下に「翌日以降の日付を入力してください。」と表示されること"
 
     # 宿泊日が91日先だと予約できないことを確認する
-    def test_setdate_three_months_ahead_days(self):
-        driver = self.driver
-        form_page = form.FormPageObject(self.driver)
+    def test_setdate_three_months_ahead_days(self, hotel_site, capture_name):
+        form_page = form.FormPageObject(hotel_site)
 
         form_page.wait_until_clickable()
 
@@ -127,10 +114,10 @@ class TestInputErrorDate:
         # 予約確認ボタンを押下する
         form_page.click_confirmbutton()
 
-        driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
-        driver.save_screenshot("./output/formserror_threemonthsahead.png")
+        hotel_site.execute_script("window.scrollTo(document.body.scrollHeight,0)")
+        hotel_site.save_screenshot(capture_name)
 
-        messeage = self.driver.find_element(
+        messeage = hotel_site.find_element(
             By.CSS_SELECTOR,
             "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div",
         ).text
@@ -140,9 +127,8 @@ class TestInputErrorDate:
         ), "宿泊日が91日先だと宿泊日入力エリア下に「3ヶ月以内の日付けを入力してください。」と表示されること"
 
     # 宿泊日欄が空白では予約できないことを確認する
-    def test_setdate_null(self):
-        driver = self.driver
-        form_page = form.FormPageObject(self.driver)
+    def test_setdate_null(self, hotel_site, capture_name):
+        form_page = form.FormPageObject(hotel_site)
 
         form_page.wait_until_clickable()
         # 宿泊日を空欄
@@ -165,10 +151,10 @@ class TestInputErrorDate:
         # 予約確認ボタンを押下する
         form_page.click_confirmbutton()
 
-        driver.execute_script("window.scrollTo(document.body.scrollHeight,0)")
-        driver.save_screenshot("./output/formserror_null.png")
+        hotel_site.execute_script("window.scrollTo(document.body.scrollHeight,0)")
+        hotel_site.save_screenshot(capture_name)
 
-        messeage = self.driver.find_element(
+        messeage = hotel_site.find_element(
             By.CSS_SELECTOR,
             "#reserve-form > div > div.col-lg-6.ml-auto > div:nth-child(1) > div",
         ).text
@@ -176,6 +162,3 @@ class TestInputErrorDate:
         assert (
             messeage == "このフィールドを入力してください。"
         ), "宿泊日が空白だと宿泊日入力エリア下に「このフィールドを入力してください。」と表示されること"
-
-    def teardown_method(self):
-        self.driver.quit()
