@@ -1,1 +1,4 @@
 node_modules/
+test/func/__pycache__
+test/func/.pytest_cache
+test/func/pages/__pycache__
