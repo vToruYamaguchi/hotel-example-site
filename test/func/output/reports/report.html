@@ -243,9 +243,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 30-Aug-2022 at 15:00:59 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 14-Sep-2022 at 16:49:10 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
+      <tr>
+        <td>Base URL</td>
+        <td></td></tr>
       <tr>
         <td>JAVA_HOME</td>
         <td>C:\Program Files (x86)\Java\jre1.8.0_321</td></tr>
@@ -257,13 +260,13 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Windows-10-10.0.19043-SP0</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{"csv": "3.0.0", "excel": "1.5.0", "html": "3.1.1", "metadata": "2.0.1", "pytest_check": "1.0.1"}</td></tr>
+        <td>{"base-url": "2.0.0", "csv": "3.0.0", "excel": "1.5.0", "html": "3.1.1", "metadata": "2.0.1", "playwright": "0.3.0", "pytest_check": "1.0.1"}</td></tr>
       <tr>
         <td>Python</td>
         <td>3.9.6</td></tr></table>
     <h2>Summary</h2>
-    <p>12 tests ran in 68.13 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">11 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>1 tests ran in 7.38 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -278,254 +281,23 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">test_resevation.py::TestReservation::test_open_webpage</td>
-          <td>None</td>
-          <td class="col-duration">6.15</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log">self = &lt;test_resevation.TestReservation object at 0x000001399A3235B0&gt;<br/>hotel_site = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;bbd615f4c119f479514d2d4f49c44df9&quot;)&gt;<br/>capture_name = &#x27;./output\\220830-145951\\TestReservation\\test_open_webpage.png&#x27;<br/><br/>    def test_open_webpage(self, hotel_site, capture_name):<br/>        driver = hotel_site<br/>        form_page = form.FormPageObject(driver)<br/>    <br/>        form_page.wait_until_clickable()<br/>    <br/>        # 宿泊数入力エリアへの文字入力(翌月の一日)および宿泊数に#を入力<br/>        today = datetime.date.today()<br/>        nextmonths = (today + relativedelta(months=1)).replace(day=1)<br/>        nextmonths = str(nextmonths).replace(&quot;-&quot;, &quot;/&quot;)<br/>        form_page.set_date(nextmonths)<br/>    <br/>        # 宿泊数を&quot;3&quot;に設定<br/>        form_page.set_term(&quot;3&quot;)<br/>    <br/>        # 人数を&quot;2&quot;に設定<br/>        form_page.set_headcount(&quot;2&quot;)<br/>    <br/>        # お得な観光プランを選択<br/>        form_page.select_plan(False, False, True)<br/>    <br/>        # 確認方法は希望しないを選択する<br/>        form_page.set_contact(&quot;希望しない&quot;)<br/>    <br/>        # 名前に「TESTA」を入力する<br/>        form_page.set_name(&quot;TESTA&quot;)<br/>        # 予約確認ボタンを押下する<br/>        form_page.click_confirmbutton()<br/>    <br/>        confirm_page = confirm.ConfirmPageObject(driver)<br/>    <br/>        confirm_page.wait_until_clickable()<br/>    <br/>        # スクリーンショット<br/>        driver.save_screenshot(capture_name)<br/>        &quot;&quot;&quot;<br/>        assert処理の後ろには基本関数は作成しない<br/>        assertでエラーになった場合はそのあとの処理が行われないため(行うためにはpycheckを入れないといけない)<br/>        &quot;&quot;&quot;<br/>        total = confirm_page.check_total()<br/>    <br/>&gt;       assert total == &quot;51,000&quot;, &quot;合計金額が51,000円であること&quot;<br/><span class="error">E       AssertionError: 合計金額が51,000円であること</span><br/><span class="error">E       assert &#x27;47,500&#x27; == &#x27;51,000&#x27;</span><br/><span class="error">E         - 51,000</span><br/><span class="error">E         + 47,500</span><br/><br/>test_resevation.py:48: AssertionError<br/> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_date.py::TestInputErrorDate::test_setdate_today</td>
-          <td>None</td>
-          <td class="col-duration">5.81</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:22 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_date.py::TestInputErrorDate::test_setdate_yesterday</td>
-          <td>None</td>
-          <td class="col-duration">5.87</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_date.py::TestInputErrorDate::test_setdate_three_months_ahead_days</td>
-          <td>None</td>
-          <td class="col-duration">5.47</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_date.py::TestInputErrorDate::test_setdate_null</td>
-          <td>None</td>
-          <td class="col-duration">5.53</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_headcount.py::TestInputErrorHeadCounts::test_setheadcount_null</td>
-          <td>None</td>
-          <td class="col-duration">5.83</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_headcount.py::TestInputErrorHeadCounts::test_setheadcount_zero</td>
-          <td>None</td>
-          <td class="col-duration">5.45</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_headcount.py::TestInputErrorHeadCounts::test_setheadcount_moreten</td>
-          <td>None</td>
-          <td class="col-duration">5.39</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_term.py::TestInputErrorTerm::test_setterm_null</td>
-          <td>None</td>
-          <td class="col-duration">5.97</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_term.py::TestInputErrorTerm::test_setterm_zero</td>
-          <td>None</td>
-          <td class="col-duration">5.74</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_inputerror_term.py::TestInputErrorTerm::test_setterm_moreten</td>
-          <td>None</td>
-          <td class="col-duration">5.44</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
           <td class="col-name">test_sample.py::Testsample::test_open_site</td>
           <td>
         AI自動修復機能確認サイトが開けることの確認
         </td>
-          <td class="col-duration">4.95</td>
+          <td class="col-duration">6.37</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
+            <div class="log">self = &lt;test_sample.Testsample object at 0x00000236D50FD700&gt;<br/>hotel_site = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;2d5a71ac8e5b76508e277a089a314a11&quot;)&gt;<br/>capture_name = &#x27;./output\\220914-164903\\Testsample\\test_open_site.png&#x27;<br/><br/>    def test_open_site(self, hotel_site, capture_name):<br/>        &quot;&quot;&quot;<br/>        AI自動修復機能確認サイトが開けることの確認<br/>        &quot;&quot;&quot;<br/>        WebDriverWait(hotel_site, 10).until(<br/>            EC.element_to_be_clickable((By.ID, &quot;confirm-button&quot;))<br/>        )<br/>    <br/>        hotel_site.execute_script(&quot;window.scrollTo(document.body.scrollHeight,0)&quot;)<br/>        hotel_site.save_screenshot(capture_name)<br/>    <br/>&gt;       assert &quot;テスト失敗&quot; in hotel_site.title, &quot;宿泊予約ページに遷移していること&quot;<br/><span class="error">E       AssertionError: 宿泊予約ページに遷移していること</span><br/><span class="error">E       assert &#x27;テスト失敗&#x27; in &#x27;宿泊予約 | HOTEL PLANISPHERE - テスト自動化練習サイト&#x27;</span><br/><span class="error">E        +  where &#x27;宿泊予約 | HOTEL PLANISPHERE - テスト自動化練習サイト&#x27; = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;2d5a71ac8e5b76508e277a089a314a11&quot;)&gt;.title</span><br/><br/>test_sample.py:18: AssertionError<br/> -----------------------------Captured stderr setup------------------------------ <br/>
 
 ====== WebDriver manager ======
-Current google-chrome version is 104.0.5112
-Get LATEST driver version for 104.0.5112
-Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:12 
+Current google-chrome version is 105.0.5195
+Get LATEST driver version for 105.0.5195
+Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\105.0.5195.52\chromedriver.exe] found in cache
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:22 
 
 INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current google-chrome version is 104.0.5112
-INFO     WDM:logger.py:12 Get LATEST driver version for 104.0.5112
-INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\104.0.5112.79\chromedriver.exe] found in cache<br/></div></td></tr></tbody></table></body></html>
+INFO     WDM:logger.py:12 Current google-chrome version is 105.0.5195
+INFO     WDM:logger.py:12 Get LATEST driver version for 105.0.5195
+INFO     WDM:logger.py:12 Driver [C:\Users\tooru.yamaguchi2\.wdm\drivers\chromedriver\win32\105.0.5195.52\chromedriver.exe] found in cache<br/></div></td></tr></tbody></table></body></html>

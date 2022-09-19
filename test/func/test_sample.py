@@ -15,4 +15,4 @@ class Testsample:
         hotel_site.execute_script("window.scrollTo(document.body.scrollHeight,0)")
         hotel_site.save_screenshot(capture_name)
 
-        assert "宿泊予約" in hotel_site.title, "宿泊予約ページに遷移していること"
+        assert "テスト失敗" in hotel_site.title, "宿泊予約ページに遷移していること"
